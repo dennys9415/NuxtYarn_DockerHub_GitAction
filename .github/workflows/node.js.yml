@@ -28,3 +28,11 @@ jobs:
         cache: 'yarn'
     - run: yarn install
     - run: yarn build --if-present
+
+    - name: Build and Push Docker Images
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: dennys9415/dockerproject
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
