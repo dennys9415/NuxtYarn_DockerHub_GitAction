@@ -30,3 +30,4 @@ jobs:
         script: |
           cd /home
           ./dockerscript.sh sh
+          ./script2.sh sh
