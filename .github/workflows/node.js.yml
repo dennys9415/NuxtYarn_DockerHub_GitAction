@@ -19,6 +19,23 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: Build and Push Docker Images
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: dennys9415/dockerproject
+        tags: latest
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: Build and Push Docker Images
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: dennys9415/dockerproject
+        tags: latest
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
         
     - name: testing ssh
       uses: appleboy/ssh-action@master
