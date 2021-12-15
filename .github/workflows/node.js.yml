@@ -21,11 +21,12 @@ jobs:
     steps:
         
     - name: testing ssh
-      uses: fifsky/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        user: ${{ secrets.USERNAME }}
-        pass: ${{ secrets.PASSWORD }}
-        command: |
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: 22
+        script: |
           cd /home
           mkdir canicas
